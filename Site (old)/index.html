@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestar+ | Acompanhamento Gestacional</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Gestar<span>+</span> ♡</div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#calendario">Calendário</a>
+        <a href="#lembretes">Lembretes</a>
+        <a href="#informacoes">Informações</a>
+        <a href="#saude-mental">Saúde mental</a>
+        <a href="#bebe">Meu bebê</a>
+    </nav>
+
+    <div class="header-actions">
+        <button class="header-btn header-btn-login" type="button">Entrar</button>
+        <button class="header-btn header-btn-register" type="button">Cadastrar</button>
+    </div>
+</header>
+
+<!-- INÍCIO -->
+
+<section class="hero" id="inicio">
+    <div class="container hero-content">
+
+        <div>
+            <h1>
+                Uma jornada especial merece
+                cuidado em cada etapa. ♡
+            </h1>
+
+            <p>
+                Acompanhe sua gestação, organize consultas,
+                exames e vacinas e encontre informações
+                para cuidar de você e do seu bebê.
+            </p>
+
+            <a href="#calendario" class="btn">
+                Acompanhar minha gestação
+            </a>
+        </div>
+
+        <div class="hero-image"><img src="https://doulabrasil.com.br/wp-content/uploads/2023/12/direitos-da-gestante--1024x1024.png" alt="Imagem de uma mulher grávida"></div>
+
+    </div>
+</section>
+
+<!-- RESUMO -->
+
+<div class="container dashboard">
+
+    <div class="card stat">
+        <div class="stat-icon">🤰</div>
+        <h3 id="current-month">1º</h3>
+        <p>Mês selecionado</p>
+    </div>
+
+    <div class="card stat">
+        <div class="stat-icon">📅</div>
+        <h3 id="pending-count">0</h3>
+        <p>Lembretes cadastrados</p>
+    </div>
+
+    <div class="card stat">
+        <div class="stat-icon">✓</div>
+        <h3 id="completed-count">0</h3>
+        <p>Cuidados concluídos</p>
+    </div>
+
+</div>
+
+<!-- CALENDÁRIO GESTACIONAL -->
+
+<section class="calendar-area" id="calendario">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Calendário da Gestação ♡</h2>
+            <p>
+                Selecione o mês para descobrir os cuidados
+                de cada fase.
+            </p>
+        </div>
+
+        <div class="month-selector" id="month-selector"></div>
+
+        <div class="month-content">
+
+            <div class="card">
+                <h3>🌱 O que acontece nesta fase?</h3>
+
+                <div class="info-card">
+                    <h4>Desenvolvimento do bebê</h4>
+                    <p id="development"></p>
+                </div>
+
+                <div class="info-card">
+                    <h4>🤍 Mudanças no corpo da mãe</h4>
+                    <p id="mother-changes"></p>
+                </div>
+
+                <div class="info-card">
+                    <h4>🌸 Cuidados importantes</h4>
+                    <p id="care"></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📋 O que preciso acompanhar?</h3>
+
+                <p class="helper-text">
+                    Marque as atividades conforme forem
+                    realizadas ou discutidas com sua equipe de saúde.
+                </p>
+
+                <div class="progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+
+                <p id="progress-text" class="helper-text"></p>
+
+                <div id="tasks"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- LEMBRETES -->
+
+<section class="reminders" id="lembretes">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Meus lembretes 📅</h2>
+            <p>
+                Organize suas consultas, exames e vacinas.
+            </p>
+        </div>
+
+        <div class="card">
+
+            <h3>Novo lembrete</h3>
+
+            <form class="reminder-form" id="reminder-form">
+
+                <input
+                    type="text"
+                    id="reminder-name"
+                    placeholder="Ex: Consulta pré-natal"
+                    required
+                >
+
+                <select id="reminder-type">
+                    <option value="Consulta">Consulta</option>
+                    <option value="Exame">Exame</option>
+                    <option value="Vacina">Vacina</option>
+                    <option value="Outro">Outro cuidado</option>
+                </select>
+
+                <input
+                    type="date"
+                    id="reminder-date"
+                    required
+                >
+
+                <button class="btn" type="submit">
+                    + Adicionar
+                </button>
+
+            </form>
+
+            <h3>Minha agenda</h3>
+
+            <div id="reminder-list"></div>
+
+        </div>
+    </div>
+</section>
+
+<!-- INFORMAÇÕES SOBRE A GESTAÇÃO -->
+
+<section id="informacoes">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Informações para uma gestação saudável ♡</h2>
+            <p>
+                Conhecimento e informação também são formas de cuidado.
+            </p>
+        </div>
+
+        <div class="education-grid">
+
+            <div class="education-card">
+                <div class="icon">🥗</div>
+
+                <h3>Alimentação na gravidez</h3>
+
+                <p>
+                    Uma alimentação variada e equilibrada ajuda
+                    a atender às necessidades nutricionais
+                    da mãe e do bebê.
+                </p>
+
+                <ul>
+                    <li>Consuma frutas, verduras e legumes.</li>
+                    <li>Priorize alimentos variados e naturais.</li>
+                    <li>Mantenha uma boa hidratação.</li>
+                    <li>Higienize corretamente os alimentos.</li>
+                    <li>Evite álcool durante a gestação.</li>
+                    <li>Converse com um profissional sobre suplementos.</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="icon">👶</div>
+
+                <h3>Desenvolvimento fetal</h3>
+
+                <p>
+                    Durante a gravidez, o bebê passa por diversas
+                    etapas de crescimento e desenvolvimento.
+                </p>
+
+                <ul>
+                    <li>Primeiro trimestre: formação inicial dos órgãos.</li>
+                    <li>Segundo trimestre: crescimento e desenvolvimento.</li>
+                    <li>Terceiro trimestre: amadurecimento e preparação para o nascimento.</li>
+                    <li>O acompanhamento pré-natal ajuda a monitorar esse processo.</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="icon">🩺</div>
+
+                <h3>Exames e vacinação</h3>
+
+                <p>
+                    O acompanhamento profissional permite avaliar
+                    a saúde materna e o desenvolvimento da gestação.
+                </p>
+
+                <ul>
+                    <li>Realize os exames solicitados.</li>
+                    <li>Mantenha a caderneta da gestante atualizada.</li>
+                    <li>Confira seu histórico vacinal.</li>
+                    <li>Converse sobre as vacinas recomendadas.</li>
+                    <li>Não utilize medicamentos sem orientação profissional.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SAÚDE MENTAL -->
+
+<section id="saude-mental" class="reminders">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Saúde mental da mãe 🌷</h2>
+            <p>
+                Cuidar da mente também faz parte do pré-natal.
+            </p>
+        </div>
+
+        <div class="education-grid">
+
+            <div class="education-card">
+                <div class="icon">💗</div>
+
+                <h3>Durante a gestação</h3>
+
+                <ul>
+                    <li>Respeite seus sentimentos.</li>
+                    <li>Procure manter momentos de descanso.</li>
+                    <li>Converse com pessoas de confiança.</li>
+                    <li>Compartilhe suas preocupações nas consultas.</li>
+                    <li>Busque apoio psicológico quando necessário.</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="icon">🌸</div>
+
+                <h3>Depois do parto</h3>
+
+                <ul>
+                    <li>O puerpério é um período de adaptação.</li>
+                    <li>Aceite ajuda nas tarefas diárias.</li>
+                    <li>Procure descansar sempre que possível.</li>
+                    <li>Converse sobre suas emoções.</li>
+                    <li>Procure atendimento se houver sofrimento persistente.</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="icon">🤝</div>
+
+                <h3>Rede de apoio</h3>
+
+                <ul>
+                    <li>Compartilhe responsabilidades.</li>
+                    <li>Peça ajuda quando precisar.</li>
+                    <li>Mantenha contato com familiares e amigos.</li>
+                    <li>Converse com profissionais de saúde.</li>
+                    <li>Lembre-se: você também precisa de cuidados.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CUIDADOS COM O BEBÊ -->
+
+<section id="bebe">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Preparando a chegada do bebê 🧸</h2>
+            <p>
+                Informações importantes para os primeiros dias de vida.
+            </p>
+        </div>
+
+        <div class="education-grid">
+
+            <div class="education-card">
+                <div class="icon">🍼</div>
+
+                <h3>Amamentação</h3>
+
+                <p>
+                    O aleitamento materno é recomendado de forma
+                    exclusiva até os seis meses, sempre que possível.
+                </p>
+
+                <ul>
+                    <li>Busque orientação sobre a pega correta.</li>
+                    <li>Procure ajuda em caso de dor ou dificuldades.</li>
+                    <li>Converse com a equipe de saúde sobre amamentação.</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="icon">🛏️</div>
+
+                <h3>Sono seguro</h3>
+
+                <p>
+                    O ambiente de sono precisa oferecer
+                    segurança ao bebê.
+                </p>
+
+                <ul>
+                    <li>Coloque o bebê para dormir de barriga para cima.</li>
+                    <li>Utilize superfície firme e plana.</li>
+                    <li>Mantenha o berço livre de travesseiros e objetos soltos.</li>
+                    <li>Evite superaquecimento.</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="icon">🧼</div>
+
+                <h3>Higiene e cuidados</h3>
+
+                <p>
+                    Os primeiros cuidados exigem atenção
+                    e orientação.
+                </p>
+
+                <ul>
+                    <li>Higienize as mãos antes de tocar no bebê.</li>
+                    <li>Cuide do coto umbilical conforme orientação.</li>
+                    <li>Mantenha as consultas de acompanhamento.</li>
+                    <li>Atualize a caderneta de vacinação.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SINAIS DE ALERTA -->
+
+<section>
+    <div class="container">
+
+        <div class="alert-box">
+
+            <h3>⚠️ Atenção aos sinais de alerta</h3>
+
+            Durante a gestação, sintomas como sangramento
+            vaginal, perda de líquido, dor abdominal intensa,
+            dor de cabeça forte ou persistente, alterações
+            visuais, falta de ar importante e diminuição dos
+            movimentos do bebê (quando já são percebidos
+            regularmente) precisam de avaliação profissional.
+
+            <br><br>
+
+            Em caso de sintomas graves, procure uma maternidade
+            ou serviço de urgência. Não espere uma resposta do site.
+
+        </div>
+
+    </div>
+</section>
+
+<!-- AVISO -->
+
+<div class="disclaimer">
+
+    <strong>
+        Importante: o Gestar+ é uma ferramenta educativa e de apoio.
+    </strong>
+
+    <p>
+        Este site não realiza diagnósticos, não prescreve tratamentos
+        e não substitui consultas, exames ou acompanhamento com
+        médicos, enfermeiros e demais profissionais de saúde.
+        As orientações são gerais e não substituem as recomendações
+        individualizadas da equipe responsável pelo pré-natal.
+    </p>
+
+</div>
+
+<!-- RODAPÉ -->
+
+<footer>
+
+    <h2>Gestar+ ♡</h2>
+
+    <p>
+        Tecnologia e informação a favor da saúde materna e neonatal.
+        Uma iniciativa alinhada ao ODS 3 – Saúde e Bem-Estar.
+    </p>
+
+    <p>
+        Projeto acadêmico de Análise e Desenvolvimento de Sistemas.
+    </p>
+
+    <p>© 2026 Gestar+ - Todos os direitos reservados.</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
