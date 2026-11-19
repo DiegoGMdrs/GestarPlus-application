@@ -1,5 +1,7 @@
 # GESTAR+ : Uma jornada Especial merece cuidado a cada etapa
 
+Acompanhe o crescimento do seu bebê, organize o pré-natal e cuide de você com mais tranquilidade.
+
 ## APP
 * https://alter-dwarf-87627192.figma.site
 
