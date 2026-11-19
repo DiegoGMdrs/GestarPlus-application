@@ -1,0 +1,11 @@
+{
+  "title": "Aplicativo Gestar+",
+  "description": "Ajuda gestantes a acompanhar o desenvolvimento do bebê, organizar consultas, exames e lembretes, e encontrar informações e apoio para cada etapa da gravidez.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
